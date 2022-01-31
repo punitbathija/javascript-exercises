@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'main'>
+    <ol type="1">
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+    </ol>
+    </div>
+    <script>
+        const salads = ['paneer', 'mushroom', 'corn', 'broclli', 'chicken'];
+        const len = salads.length
+        salads.push('babycorn'); // Push Method add's an element to the end
+        salads.unshift('Carrot'); // Unshift Method add's an element to the start
+        salads.pop(); //Removes the last element in an array
+        salads.shift(); //Removes the first element from an array
+        for (let i = 0; i <salads.length; i++)
+        
+        {
+            console.log(`Element at index ${i} is ${salads[i]}`);
+        }
+
+        const saladCopy = salads.slice();
+        console.log(saladCopy);
+        // it creates a copy of an array without affecting the orignal array
+        console.log(saladCopy === salads);
+
+        //this method is called destructing an array
+        //we can also skip elements while using the destructing method
+        const newArray = [tomato, mushroom, carrot] = ['🍅', '🍄', '🥕'];
+        console.log(tomato,carrot);
+
+        //destucting a nested array
+
+        const nestedArray = ['pineapple', 'apple', 'strawberry', ['🍅', '🍄', '🥕']];
+        const veg = nestedArray[3];
+        const fruits = nestedArray[0];
+
+        console.log(veg);
+        console.log(fruits);
+
+        //Since ES6 we can use ... as the spread syntax or the rest of the parameter in array destructuring
+        //Left of the parameter = left
+        //The Spread Syntax = Right
+
+        const newA = [tomato, mushroom, ...rest] = ['🍅', '🍄', '🥦', '🥒', '🌽', '🥕', '🥑'];
+        console.log(tomato);
+        console.log(mushroom);
+        console.log(rest);
+
+        // This Method of destructing an element in JS Array is Know as the Rest Parameter 
+
+        //The Spread Operator
+        //With the spread operator we can clone/copy an exsisting array
+
+        const newSalad = ['🐔', '🥦','🍄','🥕','🌽','🍅'];
+        const dublicateSalad = [...newSalad];
+
+        console.log(dublicateSalad);
+
+        //How to swap values using destructing
+        let first = ['😞'];
+        let second = ['😃'];
+
+        [first, second] = [second, first];
+        console.log(first);
+        console.log(second);
+
+        //How to merge arrays using destructing
+        let  third = [...first, ...second];
+        console.log(third);
+
+        //The concat array method
+        const letters = ['A', 'B', 'C', 'D'];
+        const numbers = [1,2,3,4];
+        const special = ['!','@','#','%'];
+        const merge = letters.concat(numbers,special);
+        console.log(merge);
+
+        //using the concat method we can merge any number of arrays
+        //The Join array method
+
+        const joined = letters.join(' and ');
+        console.log(joined);
+        //The join method joins the array without the comma insted gives you the permission to join with any element insted of a comma
+        //The .join() returns an empty string
+
+        //The Fill Method
+        //The fill method changes the array to static also it changes the orginal array and doesnot makes a copy
+
+        const colors = ['red', 'yellow', 'green'];
+        colors.fill('blue',0,3 );
+        //the first arguement is the start index
+        //the second arguement is the end index
+        console.log(colors);
+
+        //The includes method checks if the array includes the given or not
+
+        const names = ['Anna', 'Raju', 'Chottu' , 'Motu'];
+        console.log(names.includes('Motu'));
+        console.log(names.includes('punit'));
+        //The index of method checks at what index does an element lives in an array
+        //The lastIndexOf method does the same with the negetive sign
+        console.log(names.indexOf('Motu'));
+        console.log(names.lastIndexOf('Chottu'));
+
+        //The reverse method reverses the order of the array
+
+        console.log(names.reverse());
+
+        //The Sort method is one of the most used methods in JS it sorts the elemnts in an array in acending order
+        //you can also write an comparator funnction to sort the data accodingly
+        const number = [1,200,199,198,600,554,2,644,1001];
+        function acendingOrder(a,b)
+        {   
+            return (a-b);
+        }
+
+        function decendingOrder(a,b)
+        {
+            return (b-a);
+        }
+        console.log(number.sort(acendingOrder));
+        console.log(number.sort(decendingOrder));
+
+        //The splice() Array methods helps us to make,update,remove elements in an array
+        //the splice method is used to add update as well as delete elements in an array 
+        //the starting value passed while writing an method is the position to add an element also the second value is the value to delete elemnts upto
+
+        const cryptoCurrency = ['BTC', 'ETH', 'SOL', 'XRP', 'ADA', 'LINK', 'DOT'];
+        cryptoCurrency.splice(1,1, 'LUNA');
+
+        console.log(cryptoCurrency);
+
+        //The JS have 3 static methods 
+        //1)Array.isArray = tells us if an array is an array or not
+        //2)Array.from()
+
+         console.log(document.getElementsByTagName('li'));
+        //this is not an array the array.from method allows you to convert such kind of data which is like array to array
+        const collection = Array.from(document.getElementsByTagName('li'));
+        console.log(collection);  
+        
+        //3)Array.of()
+        //the array of helps us create an array of any type of elements
+        //returs the type as array
+        const random = Array.of(2,false,'Name', {'Animal' : 'tiger'});
+        console.log(random);
+
+</script>
+</body>
+</html>

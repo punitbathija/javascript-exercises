@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+const yo = ['a' , 'b', 'c', 'd', 'e', 'f', 'g'];
+const char = yo.filter((element, index) => 
+{
+    console.log(element, index);
+});
+
+//Understanding what is element and what is index
+console.log(char);
+        
+// Array Iterator Methods in JavaScript
+// Now we're gonna learn about array iterator methods. These are very useful methods for iterating through array and performing computations, making decisions, filtering out stuff, and more.
+// So far, we have not seen an example of an array of objects. In this section, we will use the following array of objects to explain and demonstrate the methods below.
+
+let students = [
+   {
+      'id': 001,
+      'f_name': 'Alex',
+      'l_name': 'B',
+      'gender': 'M',
+      'married': false,
+      'age': 22,
+      'paid': 250,  
+      'courses': ['JavaScript', 'React']
+   },
+   {
+      'id': 002,
+      'f_name': 'Ibrahim',
+      'l_name': 'M',
+      'gender': 'M',
+      'married': true,
+      'age': 32,
+      'paid': 150,  
+      'courses': ['JavaScript', 'PWA']
+   },
+   {
+      'id': 003,
+      'f_name': 'Rubi',
+      'l_name': 'S',
+      'gender': 'F',
+      'married': false,
+      'age': 27,
+      'paid': 350,  
+      'courses': ['Blogging', 'React', 'UX']
+   },
+   {
+      'id': 004,
+      'f_name': 'Zack',
+      'l_name': 'F',
+      'gender': 'M',
+      'married': true,
+      'age': 36,
+      'paid': 250,  
+      'courses': ['Git', 'React', 'Branding']
+   } 
+];
+
+//All the array iterator methods takes a function as an arguement.
+//You need to specify the logic to iterare and apply in that function
+
+//1)The filter method creates a new array with all the elements that satisfies with the fgiven condition
+// Let's find the student who's a female in students
+
+const femaleStudents = students.filter((element, index) =>
+{
+    return element.gender === 'F';
+});
+
+console.log(femaleStudents);
+
+const ageLessthan30 = students.filter((element, index) =>
+{
+    return element.age <= 30;
+});
+
+console.log(ageLessthan30);
+
+//The map() array method 
+//The map() method iteratres through all the elements to create a new array in which the logic is provides by us
+
+const fullNames = students.map((element, index)  =>
+{
+    return  {'fullName' : element['f_name'] + element['l_name']}
+});
+
+const genNames = students.map((element, index) =>
+{
+    return {'genName' : element['gender'] + element['f_name']}
+});
+
+
+console.log(fullNames);
+console.log(genNames);
+
+//The reduce() array method 
+//The reduce() method applies an reducedr function to all the elements and return the output
+
+const total = students.reduce((accumulator, student, currentIndex, array) =>
+{
+    accumulator = accumulator + student.paid;
+    return accumulator;
+},0)
+console.log(total);
+
+//The some() array method itrates though all the elements to check weather the given condition matches the criteria or not
+
+const below30 = students.some((element, index) =>
+{
+    return element.age <= 30;
+});
+console.log(below30);
+
+const above45 = students.some((element, index) =>
+{
+    return element.age  >= 45;
+});
+console.log(above45);
+
+//The find() method checks the condition and returns the truthy values
+
+const findBelow30 = students.find((element, index) =>
+
+{
+    return element.age < 30;
+});
+console.log(findBelow30);
+
+//The every method checks a certian condition meets all the elements of an array
+const atLeastTwo = students.every((element, index) => 
+
+{
+    return element.courses.length >=2;
+});
+console.log(atLeastTwo);
+
+const above18 = students.every((element, index) =>
+{
+    return element.age >= 18;
+});
+console.log(above18);
+
+//The at() method was added to array method in May 2021 it speifies and shows the element at the position given
+
+const junkFood = ['🥖', '🍔', '🍟', '🍕', '🌭', '🥪', '🌮', '🍿'];
+
+console.log(junkFood.at(0));
+console.log(junkFood.at(1));
+console.log(junkFood.at(2));
+console.log(junkFood.at(-1));
+console.log(junkFood.at(-2));
+console.log(junkFood.at(-8));
+
+</script>
+</body>
+</html>
